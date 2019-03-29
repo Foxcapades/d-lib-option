@@ -1,0 +1,29 @@
+= Options for D
+
+Exciting!
+
+Comes in 2 flavors!
+
+Never done before!
+
+Truly astonishing!
+
+== `option(T)` struct form
+
+[source, d]
+----
+auto foo  = none!int;
+auto bar  = some(3);
+auto fizz = maybe!(int*)(null);
+auto buzz = some!(int*)(null); // ERROR
+----
+
+== `Option(T)` class form
+
+[source, d]
+----
+auto foo  = Options.wrapNone!int();
+auto bar  = Options.wrapSome(3);
+auto fizz = Options.wrapMaybe(
+----
+

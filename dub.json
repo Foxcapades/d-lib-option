@@ -1,0 +1,11 @@
+{
+  "name": "lib-d-option",
+  "authors": [
+    "Elizabeth Harper"
+  ],
+  "description": "Even more option types for D.",
+  "copyright": "Copyright © 2018, Elizabeth Harper",
+  "license": "MIT",
+  "targetPath": "build",
+  "targetType": "library"
+}
