@@ -22,8 +22,9 @@ auto buzz = some!(int*)(null); // ERROR
 
 [source, d]
 ----
-auto foo  = Options.wrapNone!int();
-auto bar  = Options.wrapSome(3);
-auto fizz = Options.wrapMaybe(
+auto foo  = Options.none!int();
+auto bar  = Options.some(3);
+auto fizz = Options.maybe!(int*)(null);
+auto buzz = Options.some!(int*)(null); // ERROR
 ----
 
