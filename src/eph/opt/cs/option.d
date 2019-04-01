@@ -17,6 +17,10 @@ public struct option(T)
   package bool set;
 
   /**
+   * Attempts to unwrap an option value.
+   *
+   * Checks via contract that this is an option of some.
+   *
    * Return: The value wrapped by this option provided that
    *         it is an option of some.
    */
@@ -35,6 +39,14 @@ public struct option(T)
 
 
   /**
+   * Returns either the unwrapped value of this option if
+   * the option is of some, or else returns the parameter
+   * value passed to this function.
+   *
+   * Params:
+   *   alt = alternate value to return if this is an option
+   *         of none.
+   *
    * Return: If the current option is of none, the provided
    *         alternate value.  If the current option is of
    *         some, the wrapped value.
@@ -56,6 +68,14 @@ public struct option(T)
 
 
   /**
+   * Returns either the unwrapped value of this option, if
+   * the option is of some, or else calls the given function
+   * and returns the result.
+   *
+   * Params:
+   *   fn =  function which will provide an alternate value
+   *         if this is an option of none.
+   *
    * Return: If the current option is of none, the return
    *         value of the provided function.  If the current
    *         option is of some, the wrapped value.
