@@ -1,4 +1,4 @@
-= Options for D
+= Options for D!
 
 Exciting!
 
@@ -7,6 +7,20 @@ Comes in 2 flavors!
 Never done before!
 
 Truly astonishing!
+
+== Q&A
+
+=== What is this?
+
+A small minded implementation of option types in D.
+
+=== Why not just use <other option lib>?
+
+You should definitely use <other option lib>.
+
+=== Will it finally allow me to download a car?
+
+It absolutely will, yes.
 
 == `option(T)` struct form
 
