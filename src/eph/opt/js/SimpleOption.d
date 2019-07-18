@@ -259,4 +259,34 @@ package class SimpleOption(T) : Option!T {
 
     assert(new SimpleOption!int().orElse(delegate int() {return 4;}) == 4);
   }
+
+    /*------------------------------------------------------*\
+  | Operator Overloads
+  \*------------------------------------------------------*/
+
+  override bool opEquals(Object other)
+  {
+    if (other is this)
+      return true;
+    if (auto f = cast(Option!T)other) {
+      if (f.isNone ^ this.isNone)
+        return false;
+      return f.isNone || f.unwrap == this.value;
+    }
+    return false;
+  }
+  ///
+  static unittest {
+    auto noneA  = new SimpleOption!int();
+    auto noneB  = new SimpleOption!int();
+    auto some2a = new SimpleOption!int(2);
+    auto some2b = new SimpleOption!int(2);
+    auto some3  = new SimpleOption!int(3);
+
+    assert(noneA == noneB, "Empty options should be considered equal");
+    assert(noneA != some3);
+    assert(some2a == some2b);
+    assert(some2a != some3);
+  }
+
 }

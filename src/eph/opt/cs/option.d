@@ -266,6 +266,30 @@ public struct option(T)
     auto fnSome = delegate option!string(int i) { return some(to!string(i)); };
     assert(3.some.flatMap(fnSome).unwrap == "3");
   }
+
+  /*------------------------------------------------------*\
+  | Operator Overloads
+  \*------------------------------------------------------*/
+
+  bool opEquals(U : T)(const ref option!U other) const
+  {
+    if (other.isNone ^ this.isNone)
+      return false;
+    return other.isNone || other.value == this.value;
+  }
+  ///
+  unittest {
+    auto noneA  = none!int;
+    auto noneB  = none!int;
+    auto some2a = some!int(2);
+    auto some2b = some!int(2);
+    auto some3  = some!int(3);
+
+    assert(noneA == noneB);
+    assert(noneA != some3);
+    assert(some2a == some2b);
+    assert(some2a != some3);
+  }
 }
 
 
