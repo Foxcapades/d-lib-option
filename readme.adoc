@@ -22,7 +22,9 @@ You should definitely use <other option lib>.
 
 It absolutely will, yes.
 
-== `option(T)` struct form
+== Use the things
+
+=== `option(T)` struct form for when you want structs
 
 [source, d]
 ----
@@ -32,7 +34,7 @@ auto fizz = maybe!(int*)(null);
 auto buzz = some!(int*)(null); // ERROR
 ----
 
-== `Option(T)` class form
+=== `Option(T)` class form for when you want classes
 
 [source, d]
 ----
@@ -40,5 +42,21 @@ auto foo  = Options.none!int();
 auto bar  = Options.some(3);
 auto fizz = Options.maybe!(int*)(null);
 auto buzz = Options.some!(int*)(null); // ERROR
+----
+
+=== `==` and `!=` Overload for when you want to use `==` or `!=`
+
+[source, d]
+----
+auto noneA  = none!int;
+auto noneB  = none!int;
+auto some2a = some!int(2);
+auto some2b = some!int(2);
+auto some3  = some!int(3);
+
+assert(noneA == noneB);
+assert(noneA != some3);
+assert(some2a == some2b);
+assert(some2a != some3);
 ----
 
